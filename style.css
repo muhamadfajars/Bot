@@ -1,0 +1,140 @@
+*, html, body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #003049;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.container {
+    width: 100%; /* Pastikan menggunakan persentase untuk layar mobile */
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 0; /* Tambahkan padding 0 jika perlu */
+}
+
+.wrapper {
+    display: flex;
+    align-items: center; 
+    justify-content: center;
+    flex-direction: column;
+    min-width: 325px;
+    min-height: 100vh;
+}
+
+.content {
+    margin: 8px;
+}
+
+.row {
+    justify-content: center;
+    display: flex;
+    flex-direction: row;
+}
+
+button {
+    border: 1.5px solid black;
+    border-radius: 8px;
+    background-color: rgb(123, 91, 20);
+    padding: 15px;
+    font-size: 22px;
+    color: white;
+    height: 59px;
+    font-weight: 600;
+    margin-left: 8px;
+    margin-top: 10px;
+}
+
+button:hover {
+    cursor: pointer;
+    background-color: rgb(22, 125, 34);
+    transition: .5s ease-in-out;
+}
+
+input {
+    border: none;
+    background-color: whitesmoke;
+    color: black;
+    padding: 15px;
+    font-size: 22px;
+    margin-top: 10px;
+    border-radius: 8px;
+}
+
+#pertanyaan {
+    color: whitesmoke;
+    margin-bottom: 10px;
+    font-weight: 500;
+}
+
+#loaders {
+    display: none;
+    position: fixed; /* Fixed untuk posisi tetap di tengah meskipun di-scroll */
+    height: 85px;
+    width: 85px;
+    border-top: 15px solid rgb(123, 91, 20);
+    border-radius: 50%;
+    top: 50%; /* Posisikan di tengah vertikal */
+    left: 50%; /* Posisikan di tengah horizontal */
+    transform: translate(-50%, -50%); /* Geser agar pusat elemen tepat di tengah */
+    z-index: 9;
+    animation: 2s spin infinite linear;
+}
+
+
+@keyframes spin{
+    0%{
+        transform: rotate(0deg);
+    }
+
+    100%{
+        transform: rotate(360deg);
+    }
+}
+
+/* Media query untuk layar yang lebih kecil dari 768px */
+@media (max-width: 768px) {
+    .container {
+        width: 90%; /* Lebar menjadi 90% dari viewport */
+    }
+
+    button {
+        padding: 10px;
+        font-size: 18px;
+        height: auto;
+        margin-top: 5px;
+    }
+
+    input {
+        font-size: 18px;
+        padding: 10px;
+    }
+}
+
+/* Media query untuk layar lebih kecil dari 480px (layar handphone kecil) */
+@media (max-width: 480px) {
+    .wrapper {
+        min-height: 100vh;
+        padding: 20px; /* Tambahkan padding agar tidak terlalu sempit */
+    }
+
+    button {
+        font-size: 16px;
+        padding: 8px;
+        height: auto;
+    }
+
+    input {
+        font-size: 16px;
+        padding: 8px;
+        width: 100%; /* Pastikan input memenuhi lebar penuh di layar kecil */
+    }
+}
+
+@media (max-width: 480px) {
+    #loaders {
+        height: 65px; /* Kurangi ukuran jika perlu pada layar kecil */
+        width: 65px;
+        border-top: 10px solid rgb(123, 91, 20);
+    }
+}
